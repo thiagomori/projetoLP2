@@ -26,7 +26,7 @@ public class JogoDAO implements GenericDAO<Jogo>{
     //==================================INSERIR NA TABELA================================================
 
     @Override
-    public boolean insert(Jogo jogo) {
+    public boolean insert(Jogo jogo) throws ArrayIndexOutOfBoundsException{
         
         boolean resposta = false;
         
@@ -50,7 +50,7 @@ public class JogoDAO implements GenericDAO<Jogo>{
         ps.close();
         con.close();
         
-        }catch(SQLException ex){
+        }catch(SQLException | ArrayIndexOutOfBoundsException ex){
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -101,7 +101,7 @@ public class JogoDAO implements GenericDAO<Jogo>{
         
         con = ConnectionFactory.getConnection();
         
-        String sql = "UPDATE jogo SET time1 = ?, time2 = ?, estadio = ? WHERE id_jogo = ?";
+        String sql = "UPDATE jogo SET time1 = ?, time2 = ?, id_estadio = ? WHERE id_jogo = ?";
         
         try{
             

@@ -15,7 +15,6 @@ import com.br.lp2.model.dao.EstadioDAO;
 import com.br.lp2.model.dao.IngressoDAO;
 import com.br.lp2.model.dao.UsuarioDAO;
 import com.br.lp2.model.dao.JogoDAO;
-//import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -38,17 +37,17 @@ public class ProjetoSocioTorcedor {
         //LEITURA DO ESTADO INICIAL DO BANCO
         List<Usuario> lista = usuarioDAO.read();
         for (Usuario usuario : lista) {
-          //  System.out.println(usuario);
+          System.out.println(usuario);
         }
 
         List<Jogo> lista1 = jogoDAO.read();
         for (Jogo jogo : lista1) {
-            //System.out.println(jogo);
+            System.out.println(jogo);
         }
 
         List<Ingresso> lista2 = ingressoDAO.read();
         for (Ingresso ingresso : lista2) {
-            // System.out.println(ingresso);
+            System.out.println(ingresso);
         }
 
         List<Estadio> lista3 = estadioDAO.read();
@@ -97,26 +96,25 @@ public class ProjetoSocioTorcedor {
         //JOGODAO
         
         Jogo j1 = new Jogo();
-        Estadio e1 = new Estadio();
-        j1.setId_Estadio(e1.getId_estadio());
+        j1.setId_Estadio(8);
         j1.setTime1("Palmeiras");
         j1.setTime2("São Paulo");
         //jogoDAO.insert(j1);
 
         //ATUALIZA JOGO
-//        Jogo j2 = lista1.get(lista1.size() - 1);
-  //      j2.setTime1("Corinthians");
-    //    j2.setTime2("Santos");
+        Jogo j2 = lista1.get(lista1.size() - 1);
+        j2.setTime1("COR");
+        j2.setTime2("Santos");
         //jogoDAO.update(j2);
 
         //REMOVE JOGO
-//        Jogo j3 = lista1.get(lista1.size() - 1);
+        //Jogo j3 = lista1.get(lista1.size() - 1);
         //jogoDAO.delete(j3);
 
         //REMOVE JOGO ESPECIFICO
         Jogo j4 = new Jogo();
         for (Jogo jogo : lista1) {
-            if (jogo.getTime1().equals("Santos") || jogo.getTime2().equals("Santos")) {
+            if (jogo.getTime1().equals("Palmeiras") || jogo.getTime2().equals("Palmeiras")) {
                 j4 = jogo;
                 break;
             }
@@ -174,13 +172,11 @@ public class ProjetoSocioTorcedor {
         //estadioDAO.delete(es3);
 
         //REMOVE ESTADIO ESPECIFICO
-        Estadio es4 = new Estadio();
-        for (Estadio estadio : lista3) {
-            if (estadio.getNomeEstadio().equals("Arena")) {
-                es4 = estadio;
+        for(int i=0; i < lista3.size(); i++){    
+            if (lista3.get(i).getNomeEstadio().equals("Arena")) {
+                //estadioDAO.delete(lista3.get(i));
                 break;
             }
-        estadioDAO.delete(es4);
         }
 
         //========================================================================
@@ -204,7 +200,7 @@ public class ProjetoSocioTorcedor {
         //REMOVE ASSENTO ESPECIFICO
         Assento a4 = new Assento();
         for (Assento assento : lista4) {
-            if (assento.getNumeroAssento() == 53 && assento.getSetorAssento().equals("Azul")) {
+            if (assento.getNumeroAssento() == 53 && assento.getSetorAssento().equals("Amarelo")) {
                 a4 = assento;
                 break;
             }
@@ -215,17 +211,17 @@ public class ProjetoSocioTorcedor {
         
         lista = usuarioDAO.read();
         for (Usuario usuario : lista) {
-            //System.out.println(usuario);
+            System.out.println(usuario);
         }
 
         lista1 = jogoDAO.read();
         for (Jogo jogo : lista1) {
-            //System.out.println(jogo);
+            System.out.println(jogo);
         }
 
         lista2 = ingressoDAO.read();
         for (Ingresso ingresso : lista2) {
-            //System.out.println(ingresso);
+            System.out.println(ingresso);
         }
 
         lista3 = estadioDAO.read();
